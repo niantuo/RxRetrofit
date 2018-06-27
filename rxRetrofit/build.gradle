@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 4
+        versionName "4.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.squareup.retrofit2:retrofit:2.3.0"
+    api "com.squareup.okhttp3:okhttp:3.9.1"
+    api "com.squareup.okio:okio:1.13.0"
+    api "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    api "com.squareup.retrofit2:converter-scalars:2.1.0"
+    api "com.squareup.retrofit2:converter-gson:2.3.0"
+    api "com.squareup.okhttp3:logging-interceptor:3.8.0"
+    api "com.jakewharton:disklrucache:2.0.2"
+    api "com.google.code.gson:gson:2.8.4"
+    api 'com.dhh:rxlifecycle2:1.6'
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly "io.reactivex.rxjava2:rxandroid:2.0.2"
+    compileOnly "io.reactivex.rxjava2:rxjava:2.1.12"
+
+}
+repositories {
+    mavenCentral()
+}
